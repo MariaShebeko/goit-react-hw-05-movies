@@ -16,12 +16,14 @@ export default function Reviews() {
 
   return (
     <>
-      {reviews && (
+      {reviews.length > 0 ? (
         <ul>
           {reviews.map(review => (
             <li key={review.id}>{review.content}</li>
           ))}
         </ul>
+      ) : (
+        <p>There are no reviews about this movie</p>
       )}
     </>
   );

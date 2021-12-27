@@ -16,12 +16,14 @@ export default function Cast() {
 
   return (
     <>
-      {actors && (
+      {actors.length > 0 ? (
         <ul>
           {actors.map(actor => (
             <li key={actor.id}>{actor.name}</li>
           ))}
         </ul>
+      ) : (
+        <p>There is no information about cast of this movie</p>
       )}
     </>
   );
