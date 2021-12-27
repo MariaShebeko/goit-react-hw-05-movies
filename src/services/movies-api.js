@@ -16,7 +16,7 @@ function getTrendingMovies() {
     });
 }
 
-function getMoviesBySearch(page, query) {
+function getMoviesBySearch(query, page) {
   return axios
     .get(
       `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=${page}&query=${query}`,
