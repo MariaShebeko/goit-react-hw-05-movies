@@ -18,15 +18,22 @@ export default function MovieDetailsPage() {
     api.getMovieDetails(movieId).then(setMovie);
   }, [movieId]);
 
-  // console.log(movie);
+  console.log(movie);
 
   return (
     <>
       {movie && (
         <div>
-          <img src={movie.poster_path} alt={movie.title} />
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+          />
           <h2>
-            {movie.title ? movie.title : movie.name} ({movie.release_date})
+            {movie.title ? movie.title : movie.name} (
+            {movie.release_date
+              ? movie.release_date.slice(0, 4)
+              : movie.first_air_date.slice(0, 4)}
+            )
           </h2>
           <p>Raiting: {movie.vote_average}</p>
           <h3>Overwiew</h3>
