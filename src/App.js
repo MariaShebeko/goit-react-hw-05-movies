@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import HomePage from './views/HomePage';
 import MoviesPage from './views/MoviesPage';
 import MovieDetailsPage from './views/MovieDetailsPage';
+
 import NotFoundView from './views/NotFoundView';
 
 function App() {
