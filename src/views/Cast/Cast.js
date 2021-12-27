@@ -4,7 +4,7 @@ import api from '../../services/movies-api';
 
 export default function Cast() {
   const { movieId } = useParams();
-  console.log(movieId);
+  // console.log(movieId);
 
   const [actors, setActors] = useState([]);
 
@@ -12,7 +12,7 @@ export default function Cast() {
     api.getMovieActors(movieId).then(setActors);
   }, []);
 
-  console.log(actors);
+  // console.log(actors);
 
   return (
     <>

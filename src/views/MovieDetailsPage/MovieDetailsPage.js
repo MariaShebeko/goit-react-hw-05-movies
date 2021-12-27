@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 import api from '../../services/movies-api';
 import Cast from '../Cast';
+import Reviews from '../Reviews';
 
 export default function MovieDetailsPage() {
   // const match = useRouteMatch();
@@ -45,6 +46,9 @@ export default function MovieDetailsPage() {
           <NavLink to={`${url}/reviews`}>Reviews</NavLink>
           <Route path={`${path}/cast`}>
             <Cast />
+          </Route>
+          <Route path={`${path}/reviews`}>
+            <Reviews />
           </Route>
         </div>
       }
