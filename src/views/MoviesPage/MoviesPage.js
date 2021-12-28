@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import api from '../../services/movies-api';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 export default function MoviesPage() {
+  const history = useHistory();
+  const location = useLocation();
+  console.log('history', history);
+  console.log('location', location);
+
   const [movieName, setMovieName] = useState('');
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
@@ -13,10 +18,12 @@ export default function MoviesPage() {
 
   const handleNameSubmit = event => {
     event.preventDefault();
+
     if (movieName.trim() === '') {
       alert('Press the name of the movie');
     }
     setMovieName(movieName);
+    history.push({ ...location, search: `query=${movieName}` });
   };
 
   useEffect(() => {
