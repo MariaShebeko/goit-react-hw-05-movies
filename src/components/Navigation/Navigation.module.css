@@ -1,13 +1,26 @@
+.navigation {
+  padding: 10px 20px;
+  background: #02768d url('../../images/unsplash.f3edf981.jpg') no-repeat;
+  background-position: 0 100%;
+  background-size: cover;
+  transition: background-position 1s;
+  text-align: center;
+}
+
+.navigation:hover {
+  background-position: 100% 0;
+}
+
 .link {
   display: inline-block;
   text-decoration: none;
   padding: 12px;
   font-weight: 500;
-  color: #2a363b;
-  font-size: 18px;
+  color: #fff;
+  font-size: 24px;
 }
 
 .activeLink {
   composes: link;
-  color: #2196f3;
+  color: #99f2f5;
 }
