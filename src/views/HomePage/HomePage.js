@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import api from '../../services/movies-api';
+import s from './HomePage.module.css';
+import { FcRating } from 'react-icons/fc';
 
 export default function HomePage() {
   // const match = useRouteMatch();
@@ -12,18 +14,32 @@ export default function HomePage() {
     api.getTrendingMovies().then(setTrendingMovies);
   }, []);
 
-  // console.log(trendingMovies);
+  console.log(trendingMovies);
 
   return (
     <>
       {trendingMovies && (
-        <ul>
+        <ul className={s.list}>
           {trendingMovies.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>
+            <li key={movie.id} className={s.item}>
+              <Link to={`/movies/${movie.id}`} className={s.link}>
                 <div>
-                  {/* <img src={movie.poster_path} alt={movie.title} /> */}
-                  <p>{movie.title ? movie.title : movie.name}</p>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className={s.image}
+                  />
+                  <div className={s.iconWrapper}>
+                    <FcRating className={s.icon} />
+                    <span className={s.vote}>{movie.vote_average}</span>
+                  </div>
+                  <p className={s.title}>
+                    {movie.title ? movie.title : movie.name} (
+                    {movie.release_date
+                      ? movie.release_date.slice(0, 4)
+                      : movie.first_air_date.slice(0, 4)}
+                    )
+                  </p>
                 </div>
               </Link>
             </li>
