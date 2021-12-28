@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../../services/movies-api';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import LoadMoreButton from '../../components/LoadMoreButton';
 
 export default function MoviesPage() {
   const history = useHistory();
@@ -23,7 +24,11 @@ export default function MoviesPage() {
       alert('Press the name of the movie');
     }
     setMovieName(movieName);
-    history.push({ ...location, search: `query=${movieName}` });
+    setPage(page);
+    history.push({
+      ...location,
+      search: `query=${movieName}`,
+    });
   };
 
   useEffect(() => {
@@ -31,6 +36,22 @@ export default function MoviesPage() {
       api.getMoviesBySearch(movieName, page).then(setMovies);
     }
   }, [movieName, page]);
+
+  const onLoadMore = () => {
+    setMovies(prev => [...prev, ...movies]);
+    setPage(page + 1);
+
+    const options = {
+      top: null,
+      behavior: 'smooth',
+    };
+    options.top = window.pageYOffset + document.documentElement.clientHeight;
+    setTimeout(() => {
+      console.log('scrol');
+
+      window.scrollTo(options);
+    }, 1000);
+  };
 
   return (
     <>
@@ -60,6 +81,7 @@ export default function MoviesPage() {
           ))}
         </ul>
       )}
+      {movies.length > 1 && <LoadMoreButton onClick={onLoadMore} />}
     </>
   );
 }

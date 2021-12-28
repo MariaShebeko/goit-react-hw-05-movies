@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 import api from '../../services/movies-api';
-import Cast from '../Cast';
-import Reviews from '../Reviews';
+
+const Cast = lazy(() => import('../Cast' /* webpackChunkName: "cast" */));
+const Reviews = lazy(() =>
+  import('../Reviews' /* webpackChunkName: "reviews" */),
+);
 
 export default function MovieDetailsPage() {
   // const match = useRouteMatch();
@@ -51,12 +54,15 @@ export default function MovieDetailsPage() {
         <div>
           <NavLink to={`${url}/cast`}>Cast</NavLink>
           <NavLink to={`${url}/reviews`}>Reviews</NavLink>
-          <Route path={`${path}/cast`}>
-            <Cast />
-          </Route>
-          <Route path={`${path}/reviews`}>
-            <Reviews />
-          </Route>
+
+          <Suspense fallback={<div>Downloading...</div>}>
+            <Route path={`${path}/cast`}>
+              <Cast />
+            </Route>
+            <Route path={`${path}/reviews`}>
+              <Reviews />
+            </Route>
+          </Suspense>
         </div>
       }
     </>
