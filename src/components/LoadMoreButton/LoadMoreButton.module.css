@@ -1,0 +1,32 @@
+.loadBtn {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: var(--font-accent-color);
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+.loadBtn:hover,
+.loadBtn:focus {
+  background-color: var(--font-color);
+}
+
+.loadIcon {
+  margin-right: 5px;
+}
+.loadBtn:hover .loadIcon {
+  animation: spin 5s linear 0s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

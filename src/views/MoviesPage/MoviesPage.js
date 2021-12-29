@@ -8,8 +8,6 @@ import s from './MoviesPage.module.css';
 export default function MoviesPage() {
   const history = useHistory();
   const location = useLocation();
-  console.log('history', history);
-  console.log('location', location);
 
   const [movieName, setMovieName] = useState('');
   const [page, setPage] = useState(1);

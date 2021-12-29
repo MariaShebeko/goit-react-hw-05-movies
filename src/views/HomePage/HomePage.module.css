@@ -29,7 +29,7 @@
 
 .link {
   text-decoration: none;
-  color: #99f2f5;
+  color: var(--font-accent-color);
 }
 
 .iconWrapper {

@@ -2,6 +2,7 @@
 :root {
   --font-color: #e2e5e5;
   --font-accent-color: #99f2f5;
+  --bg-color: #3c505a;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #3c505a;
+  background-color: var(--bg-color);
 }
 
 code {
