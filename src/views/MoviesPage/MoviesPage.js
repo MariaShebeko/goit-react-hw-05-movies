@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import api from '../../services/movies-api';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import LoadMoreButton from '../../components/LoadMoreButton';
+import { FcSearch } from 'react-icons/fc';
+import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const history = useHistory();
@@ -56,9 +58,9 @@ export default function MoviesPage() {
   return (
     <>
       {
-        <form onSubmit={handleNameSubmit}>
-          <button type="submit">
-            <span>Search</span>
+        <form onSubmit={handleNameSubmit} className={s.form}>
+          <button type="submit" className={s.button}>
+            <FcSearch className={s.icon} />
           </button>
           <input
             onChange={handleNameChange}
@@ -67,14 +69,15 @@ export default function MoviesPage() {
             autoComplete="off"
             autoFocus
             placeholder="Enter the name of the movie"
+            className={s.input}
           />
         </form>
       }
       {movies && (
-        <ul>
+        <ul className={s.list}>
           {movies.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>
+            <li key={movie.id} className={s.item}>
+              <Link to={`/movies/${movie.id}`} className={s.link}>
                 <p>{movie.title ? movie.title : movie.name}</p>
               </Link>
             </li>
