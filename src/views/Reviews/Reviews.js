@@ -11,8 +11,6 @@ export default function Reviews() {
     api.getMovieReviews(movieId).then(setReviews);
   }, []);
 
-  console.log(reviews);
-
   return (
     <>
       {reviews.length > 0 ? (

@@ -6,8 +6,6 @@ import { FcRating } from 'react-icons/fc';
 
 export default function HomePage() {
   const location = useLocation();
-  console.log(location);
-
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {

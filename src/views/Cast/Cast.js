@@ -11,8 +11,6 @@ export default function Cast() {
     api.getMovieActors(movieId).then(setActors);
   }, []);
 
-  console.log(actors);
-
   return (
     <>
       {actors.length > 0 ? (
