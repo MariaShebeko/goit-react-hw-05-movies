@@ -32,3 +32,17 @@
   composes: link;
   color: var(--font-accent-color);
 }
+
+.button {
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: var(--font-accent-color);
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--font-color);
+}

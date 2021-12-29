@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import api from '../../services/movies-api';
 import s from './HomePage.module.css';
 import { FcRating } from 'react-icons/fc';
 
 export default function HomePage() {
-  // const match = useRouteMatch();
-  // console.log(match);
+  const location = useLocation();
+  console.log(location);
 
   const [trendingMovies, setTrendingMovies] = useState([]);
 
@@ -22,7 +22,13 @@ export default function HomePage() {
         <ul className={s.list}>
           {trendingMovies.map(movie => (
             <li key={movie.id} className={s.item}>
-              <Link to={`/movies/${movie.id}`} className={s.link}>
+              <Link
+                to={{
+                  pathname: `/movies/${movie.id}`,
+                  state: { from: location },
+                }}
+                className={s.link}
+              >
                 <div>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

@@ -1,5 +1,12 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import {
+  Route,
+  NavLink,
+  useParams,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from 'react-router-dom';
 import api from '../../services/movies-api';
 import s from './MovieDetailsPage.module.css';
 const Cast = lazy(() => import('../Cast' /* webpackChunkName: "cast" */));
@@ -8,6 +15,8 @@ const Reviews = lazy(() =>
 );
 
 export default function MovieDetailsPage() {
+  const location = useLocation();
+  const history = useHistory();
   const { url, path } = useRouteMatch();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -16,10 +25,21 @@ export default function MovieDetailsPage() {
     api.getMovieDetails(movieId).then(setMovie);
   }, [movieId]);
 
-  console.log(movie);
-
+  const onGoBack = () => {
+    // if (location && location.state && location.state.from) {
+    //   history.push(location.state.from);
+    //   return;
+    // }
+    // history.push('/');
+    history.push(location?.state?.from ?? '/');
+  };
   return (
     <>
+      {
+        <button type="button" onClick={onGoBack} className={s.button}>
+          Go back
+        </button>
+      }
       {movie && (
         <div className={s.cardWrapper}>
           <div className={s.imageWrapper}>
