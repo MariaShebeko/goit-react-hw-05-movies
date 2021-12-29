@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/movies-api';
+import s from './Reviews.module.css';
 
 export default function Reviews() {
   const { movieId } = useParams();
-  console.log(movieId);
-
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -17,9 +16,14 @@ export default function Reviews() {
   return (
     <>
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={s.list}>
           {reviews.map(review => (
-            <li key={review.id}>{review.content}</li>
+            <li key={review.id} className={s.item}>
+              <p className={s.title}>
+                {review.author} `${review.created_at.slice(0, 10)}`
+              </p>
+              <p className={s.content}>{review.content}</p>
+            </li>
           ))}
         </ul>
       ) : (
