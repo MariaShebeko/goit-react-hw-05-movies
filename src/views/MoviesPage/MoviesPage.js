@@ -3,6 +3,7 @@ import api from '../../services/movies-api';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import LoadMoreButton from '../../components/LoadMoreButton';
 import { FcSearch } from 'react-icons/fc';
+import toastify from '../../helpers/toastify';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -21,7 +22,7 @@ export default function MoviesPage() {
     event.preventDefault();
 
     if (movieName.trim() === '') {
-      alert('Press the name of the movie');
+      toastify('Press the name of the movie');
     }
     setMovieName(movieName);
     setPage(page);

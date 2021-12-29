@@ -14,8 +14,6 @@ export default function HomePage() {
     api.getTrendingMovies().then(setTrendingMovies);
   }, []);
 
-  console.log(trendingMovies);
-
   return (
     <>
       {trendingMovies && (

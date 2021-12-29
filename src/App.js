@@ -1,6 +1,8 @@
 import './App.css';
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Container from './components/Container';
 import Navigation from './components/Navigation';
 const HomePage = lazy(() =>
@@ -22,6 +24,7 @@ function App() {
   return (
     <Container>
       <Navigation />
+      <ToastContainer />
       <Suspense fallback={<div>Downloading...</div>}>
         <Switch>
           <Route path="/" exact>
