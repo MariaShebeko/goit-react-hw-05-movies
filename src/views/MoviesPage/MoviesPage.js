@@ -40,8 +40,6 @@ export default function MoviesPage() {
     };
     options.top = window.pageYOffset + document.documentElement.clientHeight;
     setTimeout(() => {
-      console.log('scrol');
-
       window.scrollTo(options);
     }, 1000);
   };
