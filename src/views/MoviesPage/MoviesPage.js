@@ -9,6 +9,7 @@ import s from './MoviesPage.module.css';
 export default function MoviesPage() {
   const history = useHistory();
   const location = useLocation();
+  const search = location.search.slice(7);
 
   const [movieName, setMovieName] = useState('');
   const [page, setPage] = useState(1);
@@ -17,6 +18,10 @@ export default function MoviesPage() {
   useEffect(() => {
     if (movieName) {
       api.getMoviesBySearch(movieName, page).then(setMovies);
+    }
+
+    if (location.search) {
+      api.getMoviesBySearch(search, page).then(setMovies);
     }
   }, [movieName, page]);
 
