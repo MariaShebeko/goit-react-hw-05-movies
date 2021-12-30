@@ -3,6 +3,7 @@ import api from '../../services/movies-api';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import LoadMoreButton from '../../components/LoadMoreButton';
 import SearchForm from '../../components/SearchForm';
+import { FcRating } from 'react-icons/fc';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -59,7 +60,24 @@ export default function MoviesPage() {
                 }}
                 className={s.link}
               >
-                <p>{movie.title ? movie.title : movie.name}</p>
+                <div>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className={s.image}
+                  />
+                  <div className={s.iconWrapper}>
+                    <FcRating className={s.icon} />
+                    <span className={s.vote}>{movie.vote_average}</span>
+                  </div>
+                  <p className={s.title}>
+                    {movie.title ? movie.title : movie.name} (
+                    {movie.release_date
+                      ? movie.release_date
+                      : movie.first_air_date}
+                    )
+                  </p>
+                </div>{' '}
               </Link>
             </li>
           ))}
