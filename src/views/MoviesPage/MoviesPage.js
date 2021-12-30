@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import api from '../../services/movies-api';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import LoadMoreButton from '../../components/LoadMoreButton';
-import { FcSearch } from 'react-icons/fc';
-import toastify from '../../helpers/toastify';
+import SearchForm from '../../components/SearchForm';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -14,29 +13,21 @@ export default function MoviesPage() {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
 
-  const handleNameChange = event => {
-    setMovieName(event.target.value.toLowerCase());
-  };
-
-  const handleNameSubmit = event => {
-    event.preventDefault();
-
-    if (movieName.trim() === '') {
-      toastify('Press the name of the movie');
-    }
-    setMovieName(movieName);
-    setPage(page);
-    history.push({
-      ...location,
-      search: `query=${movieName}`,
-    });
-  };
-
   useEffect(() => {
     if (movieName) {
       api.getMoviesBySearch(movieName, page).then(setMovies);
     }
   }, [movieName, page]);
+
+  const formSubmit = movieName => {
+    setMovieName(movieName);
+    setMovies([]);
+
+    history.push({
+      ...location,
+      search: `query=${movieName}`,
+    });
+  };
 
   const onLoadMore = () => {
     setMovies(prev => [...prev, ...movies]);
@@ -56,22 +47,7 @@ export default function MoviesPage() {
 
   return (
     <>
-      {
-        <form onSubmit={handleNameSubmit} className={s.form}>
-          <button type="submit" className={s.button}>
-            <FcSearch className={s.icon} />
-          </button>
-          <input
-            onChange={handleNameChange}
-            value={movieName}
-            type="text"
-            autoComplete="off"
-            autoFocus
-            placeholder="Enter the name of the movie"
-            className={s.input}
-          />
-        </form>
-      }
+      <SearchForm onSubmit={formSubmit} />
       {movies && (
         <ul className={s.list}>
           {movies.map(movie => (
