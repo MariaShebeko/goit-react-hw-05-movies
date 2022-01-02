@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense, useRef } from 'react';
 import {
   Route,
   NavLink,
@@ -19,6 +19,9 @@ export default function MovieDetailsPage() {
   const history = useHistory();
   const { url, path } = useRouteMatch();
   const { movieId } = useParams();
+  const locationRef = useRef(location);
+  console.log(locationRef);
+
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -26,12 +29,11 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   const onGoBack = () => {
-    // if (location && location.state && location.state.from) {
-    //   history.push(location.state.from);
-    //   return;
-    // }
-    // history.push('/');
-    history.push(location?.state?.from ?? '/');
+    if (locationRef.current.state) {
+      const { pathname, search } = locationRef.current.state.from;
+      history.push(search ? pathname + search : pathname);
+    }
+    // history.push(location?.state?.from ?? '/');
   };
   return (
     <>
