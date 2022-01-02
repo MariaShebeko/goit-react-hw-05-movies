@@ -23,4 +23,5 @@
 .activeLink {
   composes: link;
   color: #99f2f5;
+  border-bottom: 2px solid #99f2f5;
 }
