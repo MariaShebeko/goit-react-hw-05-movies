@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Container from './components/Container';
 import Navigation from './components/Navigation';
 import MoviesLoader from './components/Loader';
+import ScrollUp from './components/ScrollUpButton';
+import ScrollUpButton from './components/ScrollUpButton';
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-page" */),
 );
@@ -26,6 +28,7 @@ function App() {
     <Container>
       <Navigation />
       <ToastContainer />
+      <ScrollUpButton />
       <Suspense fallback={<MoviesLoader />}>
         <Switch>
           <Route path="/" exact>
