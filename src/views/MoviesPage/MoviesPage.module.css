@@ -24,7 +24,7 @@
   transform: translateY(-6px);
 }
 .item:hover .iconWrapper {
-  bottom: 66px;
+  top: -2px;
 }
 
 .link {
@@ -35,9 +35,9 @@
 .iconWrapper {
   display: flex;
   position: absolute;
-  bottom: 60px;
+  top: 4px;
   left: 5px;
-  transition: bottom 0.2s ease-out;
+  transition: top 0.2s ease-out;
 }
 
 .icon {
