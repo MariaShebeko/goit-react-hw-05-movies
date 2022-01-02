@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Container from './components/Container';
 import Navigation from './components/Navigation';
+import MoviesLoader from './components/Loader';
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-page" */),
 );
@@ -25,7 +26,7 @@ function App() {
     <Container>
       <Navigation />
       <ToastContainer />
-      <Suspense fallback={<div>Downloading...</div>}>
+      <Suspense fallback={<MoviesLoader />}>
         <Switch>
           <Route path="/" exact>
             <HomePage />

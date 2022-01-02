@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import api from '../../services/movies-api';
-import s from './HomePage.module.css';
 import { FcRating } from 'react-icons/fc';
+import s from './HomePage.module.css';
 
 export default function HomePage() {
   const location = useLocation();
