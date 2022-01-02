@@ -20,7 +20,6 @@ export default function MovieDetailsPage() {
   const { url, path } = useRouteMatch();
   const { movieId } = useParams();
   const locationRef = useRef(location);
-  console.log(locationRef);
 
   const [movie, setMovie] = useState(null);
 
