@@ -8,6 +8,7 @@ import {
   useHistory,
 } from 'react-router-dom';
 import api from '../../services/movies-api';
+import noImage from '../../images/no-image.webp';
 import s from './MovieDetailsPage.module.css';
 const Cast = lazy(() => import('../Cast' /* webpackChunkName: "cast" */));
 const Reviews = lazy(() =>
@@ -45,7 +46,11 @@ export default function MovieDetailsPage() {
         <div className={s.cardWrapper}>
           <div className={s.imageWrapper}>
             <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : noImage
+              }
               alt={movie.title}
               className={s.imageActor}
             />

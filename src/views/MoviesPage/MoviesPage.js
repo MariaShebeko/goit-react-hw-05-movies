@@ -4,6 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import LoadMoreButton from '../../components/LoadMoreButton';
 import SearchForm from '../../components/SearchForm';
 import { FcRating } from 'react-icons/fc';
+import noImage from '../../images/no-image.webp';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -65,7 +66,11 @@ export default function MoviesPage() {
               >
                 <div>
                   <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    src={
+                      movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                        : noImage
+                    }
                     alt={movie.title}
                     className={s.image}
                   />

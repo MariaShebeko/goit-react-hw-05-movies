@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import api from '../../services/movies-api';
 import noImage from '../../images/no-image.webp';
 import s from './Cast.module.css';
-import { FiFrown } from 'react-icons/fi';
 
 export default function Cast() {
   const { movieId } = useParams();
