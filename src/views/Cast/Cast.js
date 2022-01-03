@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/movies-api';
+import noImage from '../../images/no-image.webp';
 import s from './Cast.module.css';
 import { FiFrown } from 'react-icons/fi';
 
@@ -18,17 +19,15 @@ export default function Cast() {
         <ul className={s.list}>
           {actors.map(actor => (
             <li key={actor.id} className={s.item}>
-              {actor.profile_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-                  alt={actor.name}
-                />
-              ) : (
-                <span className={s.iconWrapper}>
-                  <FiFrown size={50} className={s.icon} /> <p>no image find</p>
-                </span>
-              )}
-
+              <img
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                    : noImage
+                }
+                alt={actor.name}
+                className={s.image}
+              />
               <p className={s.text}>{actor.name}</p>
             </li>
           ))}
