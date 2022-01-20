@@ -5,19 +5,24 @@ export default function Trailer({ id }) {
   const [src, setSrc] = useState('');
 
   useEffect(() => {
-    api.getMovieTrailer(id).then(data => {
-      console.log('data Trailer', data);
-      const idYoutube = data[0].key;
-      console.log('idYoutube', idYoutube);
+    api
+      .getMovieTrailer(id)
+      .then(data => {
+        console.log('data Trailer', data);
+        const idYoutube = data[0].key;
+        console.log('idYoutube', idYoutube);
 
-      setSrc(`https://www.youtube.com/embed/${idYoutube}`);
-    });
+        setSrc(`https://www.youtube.com/embed/${idYoutube}`);
+      })
+      .catch(error => {
+        console.log(error.message);
+        setSrc(`https://www.youtube.com/embed/2U76x2fD_tE`);
+      });
   }, [id]);
 
   return (
-    <div className="trailer-container">
+    <div>
       <iframe
-        className="responsive-iframe"
         width="560"
         height="315"
         src={src}
