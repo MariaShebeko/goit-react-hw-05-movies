@@ -9,10 +9,14 @@ import {
 } from 'react-router-dom';
 import api from '../../services/movies-api';
 import noImage from '../../images/no-image.webp';
+import Modal from '../../components/Modal/Modal';
 import s from './MovieDetailsPage.module.css';
 const Cast = lazy(() => import('../Cast' /* webpackChunkName: "cast" */));
 const Reviews = lazy(() =>
   import('../Reviews' /* webpackChunkName: "reviews" */),
+);
+const Trailer = lazy(() =>
+  import('../../components/Trailer' /* webpackChunkName: "trailer" */),
 );
 
 export default function MovieDetailsPage() {
@@ -23,6 +27,7 @@ export default function MovieDetailsPage() {
   const locationRef = useRef(location);
 
   const [movie, setMovie] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     api.getMovieDetails(movieId).then(setMovie);
@@ -35,6 +40,11 @@ export default function MovieDetailsPage() {
     }
     // history.push(location?.state?.from ?? '/');
   };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       {
@@ -67,14 +77,19 @@ export default function MovieDetailsPage() {
             <h3 className={s.title}>Overwiew</h3>
             <p className={s.text}>{movie.overview}</p>
             <h3 className={s.title}>Genres</h3>
-            <p>
+            <ul className={s.genreList}>
               {movie.genres.map(genre => (
-                <span
-                  key={genre.id}
-                  className={s.text}
-                >{`${genre.name} `}</span>
+                <li key={genre.id} className={s.text}>{`${genre.name} `}</li>
               ))}
-            </p>
+            </ul>
+            <button type="button" onClick={toggleModal} className={s.button}>
+              Watch trailer
+            </button>
+            {showModal && (
+              <Modal onClose={toggleModal}>
+                <Trailer id={movieId} />
+              </Modal>
+            )}
           </div>
         </div>
       )}

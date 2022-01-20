@@ -1,6 +1,7 @@
 .cardWrapper {
   display: flex;
   padding: 20px;
+  width: 75%;
 }
 
 .textWrapper {
@@ -9,6 +10,11 @@
 
 .title {
   color: var(--font-accent-color);
+}
+
+.genreList {
+  list-style: none;
+  padding: 0;
 }
 
 .text {

@@ -78,12 +78,29 @@ function getMovieReviews(movieId) {
     });
 }
 
+function getMovieTrailer(movieId) {
+  return axios
+    .get(`${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
+    .then(response => {
+      if (response.status === 200) {
+        console.log('response from API trailer', response);
+
+        return response.data.results;
+      } else {
+        return Promise.reject(
+          new Error('There is no information about this movie'),
+        );
+      }
+    });
+}
+
 const api = {
   getTrendingMovies,
   getMoviesBySearch,
   getMovieDetails,
   getMovieActors,
   getMovieReviews,
+  getMovieTrailer,
 };
 
 export default api;
