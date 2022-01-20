@@ -32,8 +32,11 @@
   border-radius: 50%;
   border: none;
   background-color: transparent;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.closeBtn:hover {
+  transform: rotate(90deg);
+}
 .closeIcon {
   width: 24px;
   height: 24px;

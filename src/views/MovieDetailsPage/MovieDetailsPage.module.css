@@ -21,6 +21,11 @@
   color: var(--font-color);
 }
 
+.trailerIcon {
+  width: 80px;
+  height: 25px;
+}
+
 .castReviewWrapper {
   padding-left: 10px;
 }

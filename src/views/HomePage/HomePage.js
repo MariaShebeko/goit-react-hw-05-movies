@@ -14,6 +14,7 @@ export default function HomePage() {
 
   return (
     <>
+      <h1 className={s.header}>Trending movies</h1>
       {trendingMovies && (
         <ul className={s.list}>
           {trendingMovies.map(movie => (
