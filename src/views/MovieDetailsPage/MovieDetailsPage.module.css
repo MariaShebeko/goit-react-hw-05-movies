@@ -1,6 +1,7 @@
 .cardWrapper {
   display: flex;
   padding: 20px;
+  padding-bottom: 0;
   width: 75%;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .castReviewWrapper {
-  padding-left: 10px;
+  text-align: center;
 }
 
 .link {
@@ -55,5 +56,5 @@
 
 .button:hover,
 .button:focus {
-  background-color: var(--font-color);
+  background-color: var(--accent-color3);
 }

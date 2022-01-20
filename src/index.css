@@ -3,6 +3,9 @@
   --font-color: #e2e5e5;
   --font-accent-color: #99f2f5;
   --bg-color: #3c505a;
+  --accent-color1: rgba(94, 114, 235, 1);
+  --accent-color2: rgba(255, 145, 144, 1);
+  --accent-color3: rgba(254, 193, 149, 1);
 }
 
 body {

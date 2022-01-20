@@ -1,7 +1,17 @@
+.Wrapper {
+  padding: 20px;
+  text-align: left;
+}
+
 .list {
   margin: 0;
   padding: 10px;
   list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-flow: column;
 }
 
 .title {
