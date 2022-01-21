@@ -21,7 +21,7 @@ export default function Reviews() {
               <li key={review.id} className={s.item}>
                 <div>
                   <p className={s.title}>
-                    {review.author} ${review.created_at.slice(0, 10)}
+                    {review.author} {review.created_at.slice(0, 10)}
                   </p>
                 </div>
                 <div>

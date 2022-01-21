@@ -13,18 +13,26 @@
 
 .item {
   position: relative;
+  transition: transform 0.2s ease-out;
+}
+
+.border {
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+
+.border:hover {
+  box-shadow: 0px 0px 15px -2px #f2cb9a;
 }
 
 .image {
   border-radius: 4px;
-  transition: transform 0.2s ease-out;
 }
 
-.item:hover .image {
+.item:hover {
   transform: translateY(-6px);
-}
-.item:hover .iconWrapper {
-  top: -2px;
 }
 
 .link {
@@ -48,7 +56,7 @@
 .vote {
   font-size: 20px;
   font-weight: bold;
-  color: #ff8943;
+  color: var(--accent-color2);
 }
 .title {
   margin: 0 auto;

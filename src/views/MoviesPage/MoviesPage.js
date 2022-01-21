@@ -64,7 +64,7 @@ export default function MoviesPage() {
                 }}
                 className={s.link}
               >
-                <div>
+                <div className={s.border}>
                   <img
                     src={
                       movie.poster_path

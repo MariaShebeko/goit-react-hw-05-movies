@@ -34,6 +34,17 @@
   transition: transform 0.2s ease-out;
 }
 
+.border {
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+
+.border:hover {
+  box-shadow: 0px 0px 15px -2px #f2cb9a;
+}
+
 .image {
   border-radius: 4px;
 }
