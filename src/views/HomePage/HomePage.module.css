@@ -12,7 +12,7 @@
   );
   color: transparent;
   font-size: 40px;
-  animation: move 1s infinite;
+  animation: move 2s infinite;
   background-clip: text;
 }
 
