@@ -4,7 +4,7 @@
   display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 16px;
+  grid-gap: 53px;
   padding: 0;
   list-style: none;
   margin-left: auto;
@@ -16,23 +16,14 @@
   transition: transform 0.2s ease-out;
 }
 
-.border {
-  background: transparent;
-  border-radius: 10px;
-  transition: border 1s;
-  position: relative;
-}
-
-.border:hover {
-  box-shadow: 0px 0px 15px -2px #f2cb9a;
-}
-
 .image {
   border-radius: 4px;
+  height: 100%;
 }
 
 .item:hover {
   transform: translateY(-6px);
+  box-shadow: 0px 0px 15px -2px #f2cb9a;
 }
 
 .link {

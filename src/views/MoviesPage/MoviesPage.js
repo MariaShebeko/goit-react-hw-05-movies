@@ -64,28 +64,26 @@ export default function MoviesPage() {
                 }}
                 className={s.link}
               >
-                <div className={s.border}>
-                  <img
-                    src={
-                      movie.poster_path
-                        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                        : noImage
-                    }
-                    alt={movie.title}
-                    className={s.image}
-                  />
-                  <div className={s.iconWrapper}>
-                    <FcRating className={s.icon} />
-                    <span className={s.vote}>{movie.vote_average}</span>
-                  </div>
-                  <p className={s.title}>
-                    {movie.title ? movie.title : movie.name} (
-                    {movie.release_date
-                      ? movie.release_date
-                      : movie.first_air_date}
-                    )
-                  </p>
-                </div>{' '}
+                <img
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                      : noImage
+                  }
+                  alt={movie.title}
+                  className={s.image}
+                />
+                <div className={s.iconWrapper}>
+                  <FcRating className={s.icon} />
+                  <span className={s.vote}>{movie.vote_average}</span>
+                </div>
+                <p className={s.title}>
+                  {movie.title ? movie.title : movie.name} (
+                  {movie.release_date
+                    ? movie.release_date
+                    : movie.first_air_date}
+                  )
+                </p>
               </Link>
             </li>
           ))}

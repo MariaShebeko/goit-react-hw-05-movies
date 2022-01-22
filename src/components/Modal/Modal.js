@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { RiCloseCircleLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 import s from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
-
 export default function Modal({ children, onClose }) {
   useEffect(() => {
     const handleKeyDown = evt => {
@@ -28,9 +26,6 @@ export default function Modal({ children, onClose }) {
   return createPortal(
     <div className={s.overlay} onClick={onBackdropClick}>
       <div className={s.modal}>{children}</div>
-      <button type="button" onClick={onClose} className={s.closeBtn}>
-        <RiCloseCircleLine className={s.closeIcon} />
-      </button>
     </div>,
     modalRoot,
   );

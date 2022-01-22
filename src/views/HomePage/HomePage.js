@@ -26,24 +26,22 @@ export default function HomePage() {
                 }}
                 className={s.link}
               >
-                <div className={s.border}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                    className={s.image}
-                  />
-                  <div className={s.iconWrapper}>
-                    <FcRating className={s.icon} />
-                    <span className={s.vote}>{movie.vote_average}</span>
-                  </div>
-                  <p className={s.title}>
-                    {movie.title ? movie.title : movie.name} (
-                    {movie.release_date
-                      ? movie.release_date.slice(0, 4)
-                      : movie.first_air_date.slice(0, 4)}
-                    )
-                  </p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className={s.image}
+                />
+                <div className={s.iconWrapper}>
+                  <FcRating className={s.icon} />
+                  <span className={s.vote}>{movie.vote_average}</span>
                 </div>
+                <p className={s.title}>
+                  {movie.title ? movie.title : movie.name} (
+                  {movie.release_date
+                    ? movie.release_date.slice(0, 4)
+                    : movie.first_air_date.slice(0, 4)}
+                  )
+                </p>
               </Link>
             </li>
           ))}
