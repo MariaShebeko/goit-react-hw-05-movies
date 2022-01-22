@@ -1,7 +1,7 @@
 import './App.css';
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 import Container from './components/Container';
 import Navigation from './components/Navigation';
@@ -27,7 +27,7 @@ function App() {
   return (
     <Container>
       <Navigation />
-      <ToastContainer />
+      <Toaster />
       <ScrollUpButton />
       <Suspense fallback={<MoviesLoader />}>
         <Switch>

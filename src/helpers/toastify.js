@@ -1,14 +1,16 @@
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const toastify = message => {
-  return toast.info(message, {
-    position: 'top-right',
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    theme: 'dark',
+  toast.success(message, {
+    style: {
+      border: '1px solid #99f2f5',
+      padding: '16px',
+      color: '#713200',
+    },
+    iconTheme: {
+      primary: '#99f2f5',
+      secondary: '#FFFAEE',
+    },
   });
 };
 

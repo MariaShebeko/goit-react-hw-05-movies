@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/movies-api';
+import toastify from '../../helpers/toastify';
 import s from './Reviews.module.css';
 
 export default function Reviews() {
@@ -9,6 +10,9 @@ export default function Reviews() {
 
   useEffect(() => {
     api.getMovieReviews(movieId).then(setReviews);
+    if (reviews.length === 0) {
+      toastify('There are no reviews about this movie');
+    }
   }, []);
 
   return (

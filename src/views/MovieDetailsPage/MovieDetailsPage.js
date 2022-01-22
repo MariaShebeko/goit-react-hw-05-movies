@@ -55,17 +55,15 @@ export default function MovieDetailsPage() {
       }
       {movie && (
         <div className={s.cardWrapper}>
-          <div className={s.imageWrapper}>
-            <img
-              src={
-                movie.poster_path
-                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                  : noImage
-              }
-              alt={movie.title}
-              className={s.imageActor}
-            />
-          </div>
+          <img
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : noImage
+            }
+            alt={movie.title}
+            className={s.image}
+          />
           <div className={s.textWrapper}>
             <h2 className={s.title}>
               {movie.title ? movie.title : movie.name} (

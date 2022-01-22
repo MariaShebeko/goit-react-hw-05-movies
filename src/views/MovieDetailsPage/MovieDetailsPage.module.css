@@ -6,6 +6,9 @@
   width: 75%;
 }
 
+.image {
+  border-radius: 4px;
+}
 .textWrapper {
   padding-left: 10px;
 }
