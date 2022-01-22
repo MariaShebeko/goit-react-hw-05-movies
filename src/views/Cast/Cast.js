@@ -7,7 +7,6 @@ import s from './Cast.module.css';
 export default function Cast() {
   const { movieId } = useParams();
   const [actors, setActors] = useState([]);
-  console.log(actors);
 
   useEffect(() => {
     api.getMovieActors(movieId).then(setActors);

@@ -1,5 +1,6 @@
 .cardWrapper {
   display: flex;
+  margin: 0 auto;
   padding: 20px;
   padding-bottom: 0;
   width: 75%;
@@ -20,11 +21,6 @@
 
 .text {
   color: var(--font-color);
-}
-
-.trailerIcon {
-  width: 80px;
-  height: 25px;
 }
 
 .castReviewWrapper {

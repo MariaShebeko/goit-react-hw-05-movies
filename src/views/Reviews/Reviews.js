@@ -10,7 +10,6 @@ export default function Reviews() {
   useEffect(() => {
     api.getMovieReviews(movieId).then(setReviews);
   }, []);
-  console.log('reviews', reviews);
 
   return (
     <>

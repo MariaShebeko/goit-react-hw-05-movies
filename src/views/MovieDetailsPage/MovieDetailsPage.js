@@ -10,7 +10,7 @@ import {
 import api from '../../services/movies-api';
 import noImage from '../../images/no-image.webp';
 import Modal from '../../components/Modal/Modal';
-import { ImYoutube2 } from 'react-icons/im';
+import Button from '../../components/Button/Button';
 import s from './MovieDetailsPage.module.css';
 const Cast = lazy(() => import('../Cast' /* webpackChunkName: "cast" */));
 const Reviews = lazy(() =>
@@ -83,9 +83,7 @@ export default function MovieDetailsPage() {
                 <li key={genre.id} className={s.text}>{`${genre.name} `}</li>
               ))}
             </ul>
-            <button type="button" onClick={toggleModal} className={s.button}>
-              <ImYoutube2 className={s.trailerIcon} />
-            </button>
+            {<Button onClick={toggleModal} />}
             {showModal && (
               <Modal onClose={toggleModal}>
                 <Trailer id={movieId} />
