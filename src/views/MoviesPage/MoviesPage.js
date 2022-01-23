@@ -5,6 +5,7 @@ import LoadMoreButton from '../../components/LoadMoreButton';
 import SearchForm from '../../components/SearchForm';
 import { FcRating } from 'react-icons/fc';
 import noImage from '../../images/no-image.webp';
+import slugify from 'slugify';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -59,7 +60,10 @@ export default function MoviesPage() {
             <li key={movie.id} className={s.item}>
               <Link
                 to={{
-                  pathname: `/movies/${movie.id}`,
+                  pathname: `/movies/${slugify(`${movie.title} ${movie.id}`, {
+                    lower: true,
+                    strict: true,
+                  })}`,
                   state: { from: location },
                 }}
                 className={s.link}

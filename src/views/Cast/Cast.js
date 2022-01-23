@@ -5,7 +5,8 @@ import noImage from '../../images/No-Image.png';
 import s from './Cast.module.css';
 
 export default function Cast() {
-  const { movieId } = useParams();
+  const { slug } = useParams();
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
   const [actors, setActors] = useState([]);
 
   useEffect(() => {

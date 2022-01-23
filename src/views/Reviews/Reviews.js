@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/movies-api';
-import toastify from '../../helpers/toastify';
+// import toastify from '../../helpers/toastify';
 import s from './Reviews.module.css';
 
 export default function Reviews() {
-  const { movieId } = useParams();
+  const { slug } = useParams();
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     api.getMovieReviews(movieId).then(setReviews);
-    if (reviews.length === 0) {
-      toastify('There are no reviews about this movie');
-    }
-  }, []);
+  }, [movieId]);
 
+  // if (reviews.length === 0 ) {
+  //   toastify('There are no reviews about this movie');
+  // }
   return (
     <>
       <div className={s.Wrapper}>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import api from '../../services/movies-api';
 import { FcRating } from 'react-icons/fc';
+import slugify from 'slugify';
 import s from './HomePage.module.css';
 
 export default function HomePage() {
@@ -21,7 +22,10 @@ export default function HomePage() {
             <li key={movie.id} className={s.item}>
               <Link
                 to={{
-                  pathname: `/movies/${movie.id}`,
+                  pathname: `/movies/${slugify(`${movie.title} ${movie.id}`, {
+                    lower: true,
+                    strict: true,
+                  })}`,
                   state: { from: location },
                 }}
                 className={s.link}

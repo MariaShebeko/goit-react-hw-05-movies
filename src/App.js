@@ -35,7 +35,7 @@ function App() {
             <HomePage />
           </Route>
 
-          <Route path="/movies/:movieId">
+          <Route path="/movies/:slug">
             <MovieDetailsPage />
           </Route>
 

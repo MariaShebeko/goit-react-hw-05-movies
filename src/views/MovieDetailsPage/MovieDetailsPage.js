@@ -24,7 +24,8 @@ export default function MovieDetailsPage() {
   const location = useLocation();
   const history = useHistory();
   const { url, path } = useRouteMatch();
-  const { movieId } = useParams();
+  const { slug } = useParams();
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
   const locationRef = useRef(location);
 
   const [movie, setMovie] = useState(null);
