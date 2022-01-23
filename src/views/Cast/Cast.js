@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../../services/movies-api';
-import noImage from '../../images/No-Image.png';
+import api from 'services/movies-api';
+import noImage from 'images/No-Image.png';
 import s from './Cast.module.css';
 
 export default function Cast() {

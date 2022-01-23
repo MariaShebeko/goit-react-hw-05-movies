@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import api from '../../services/movies-api';
+import api from 'services/movies-api';
 import { FcRating } from 'react-icons/fc';
 import slugify from 'slugify';
 import s from './HomePage.module.css';

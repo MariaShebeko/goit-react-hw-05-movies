@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import api from '../../services/movies-api';
+import api from 'services/movies-api';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import LoadMoreButton from '../../components/LoadMoreButton';
-import SearchForm from '../../components/SearchForm';
+import LoadMoreButton from 'components/LoadMoreButton';
+import SearchForm from 'components/SearchForm';
 import { FcRating } from 'react-icons/fc';
-import noImage from '../../images/no-image.webp';
+import noImage from 'images/no-image.webp';
 import slugify from 'slugify';
 import s from './MoviesPage.module.css';
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../../services/movies-api';
+import api from 'services/movies-api';
 // import toastify from '../../helpers/toastify';
 import s from './Reviews.module.css';
 

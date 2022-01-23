@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FcSearch } from 'react-icons/fc';
-import toastify from '../../helpers/toastify';
+import toastify from 'helpers/toastify';
 import s from './SearchForm.module.css';
 
 export default function SearchForm({ onSubmit }) {

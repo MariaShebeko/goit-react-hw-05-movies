@@ -3,11 +3,10 @@ import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
-import Container from './components/Container';
-import Navigation from './components/Navigation';
-import MoviesLoader from './components/Loader';
-import ScrollUp from './components/ScrollUpButton';
-import ScrollUpButton from './components/ScrollUpButton';
+import Container from 'components/Container';
+import Navigation from 'components/Navigation';
+import MoviesLoader from 'components/Loader';
+import ScrollUpButton from 'components/ScrollUpButton';
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-page" */),
 );

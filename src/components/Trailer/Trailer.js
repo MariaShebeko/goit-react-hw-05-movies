@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import api from '../../services/movies-api';
+import api from 'services/movies-api';
 
 export default function Trailer({ id }) {
   const [src, setSrc] = useState('');

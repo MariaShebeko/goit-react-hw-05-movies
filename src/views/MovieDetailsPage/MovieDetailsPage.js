@@ -7,17 +7,17 @@ import {
   useLocation,
   useHistory,
 } from 'react-router-dom';
-import api from '../../services/movies-api';
-import noImage from '../../images/no-image.webp';
-import Modal from '../../components/Modal/Modal';
-import Button from '../../components/Button/Button';
+import api from 'services/movies-api';
+import noImage from 'images/no-image.webp';
+import Modal from 'components/Modal/Modal';
+import Button from 'components/Button/Button';
 import s from './MovieDetailsPage.module.css';
 const Cast = lazy(() => import('../Cast' /* webpackChunkName: "cast" */));
 const Reviews = lazy(() =>
   import('../Reviews' /* webpackChunkName: "reviews" */),
 );
 const Trailer = lazy(() =>
-  import('../../components/Trailer' /* webpackChunkName: "trailer" */),
+  import('components/Trailer' /* webpackChunkName: "trailer" */),
 );
 
 export default function MovieDetailsPage() {
