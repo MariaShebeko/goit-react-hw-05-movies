@@ -1,7 +1,7 @@
 [build]
-  publich = "build"
+public = "build"
 
-  [[redirects]]
-    from = "/*"
-    to = "/index.html"
-    ststus = 200
+[[redirects]]
+from = "/*"
+status = 200
+to = "/index.html"
